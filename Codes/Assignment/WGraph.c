@@ -43,6 +43,8 @@ int numOfVertices(Graph g) {
 
 // check if vertex is valid in a graph
 int validV(Graph g, Vertex v) {
+    if(v < 0) printf("v < 0\n");
+    if(v > g->nV) printf("v > %d\n",g->nV);
     return (g != NULL && v >= 0 && v < g->nV);
 }
 
@@ -65,6 +67,13 @@ void removeEdge(Graph g, Edge e) {
 }
 
 int adjacent(Graph g, Vertex v, Vertex w) {
+    if(g == NULL){
+        printf("g is NULL\n");
+    }
+
+    if(!validV(g,v)){
+        printf("valid wrong\n");
+    }
     assert(g != NULL && validV(g,v) && validV(g,w));
 
     return g->edges[v][w];
@@ -91,6 +100,8 @@ void freeGraph(Graph g) {
     free(g->edges);
     free(g);
 }
+
+// print words one by one
 void displayPath(Graph g, char pString[][32], int vertex) {
     assert(g != NULL);
     int i, j;

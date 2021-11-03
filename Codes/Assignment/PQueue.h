@@ -11,5 +11,5 @@
 
 void   PQueueInit();
 void   joinPQueue(Vertex);
-Vertex leavePQueue(int[]);
+Vertex popPQueue(int[]);
 bool   PQueueIsEmpty();

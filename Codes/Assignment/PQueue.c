@@ -3,7 +3,7 @@
 #include "PQueue.h"
 #include <assert.h>
 
-#define VERY_HIGH_VALUE 999999
+#define VERY_LOW_VALUE -999999
 
 typedef struct {
     Vertex item[MAX_NODES];  // array of vertices currently in queue
@@ -33,12 +33,11 @@ void joinPQueue(int v) {
 // remove the highest priority vertex from PQueue
 // highest priority = lowest value priority[v]
 // returns the removed vertex
-Vertex leavePQueue(int priority[]) {
+Vertex popPQueue(int priority[]) {
     assert(PQueue.length > 0);
-
-    int i, bestIndex = 0, bestVertex = PQueue.item[0], bestWeight = VERY_HIGH_VALUE;
-    for (i = 0; i < PQueue.length; i++) {         // find i with min priority[item[i]]
-        if (priority[PQueue.item[i]] < bestWeight) {
+    int i, bestIndex = 0, bestVertex = PQueue.item[0], bestWeight = VERY_LOW_VALUE;
+    for (i = 0; i < PQueue.length; i++) {         // find i with max priority[item[i]]
+        if (priority[PQueue.item[i]] > bestWeight) {
             bestIndex = i;
             bestWeight = priority[PQueue.item[i]];
             bestVertex = PQueue.item[i];            // vertex with lowest value so far

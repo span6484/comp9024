@@ -1,7 +1,6 @@
-6
-lad
-lag
-lap
-tap
-tip
-top
+5
+east
+eat
+eats
+fast
+fist
