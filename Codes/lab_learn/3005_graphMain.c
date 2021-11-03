@@ -1,0 +1,34 @@
+//
+// Created by shao on 2021/10/12.
+//
+
+#include "3005_graph.h"
+#include <stdio.h>
+#define NODES 5
+
+int main(void) {
+    Graph g = newGraph(NODES);
+    Edge e;
+
+    e.v = 0; e.w = 4;
+    insertEdge(g,e);
+    e.v = 1; e.w = 3;
+    insertEdge(g,e);
+    e.v = 3; e.w = 1;
+    insertEdge(g,e);
+//    e.v = 3; e.w = ;
+//    insertEdge(g, e);
+    showGraph(g);
+
+//    putchar('\n');
+//
+//    e.v = 1; e.w = 3;
+//    removeEdge(g,e);
+//    e.v = 4; e.w = 0;
+//    removeEdge(g,e);
+//    e.v = 4; e.w = 1;
+//    removeEdge(g,e);
+//    showGraph(g);
+//    freeGraph(g);
+    return 0;
+}
