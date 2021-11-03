@@ -1,4 +1,5 @@
-# 说明：
+# 说明:
+    这是我comp9024-T2 学习内容
 
 ## 开发环境说明
     1. Clion必须以Project的项目存在，默认一个项目必须并且只能有一个main方法的.c文件
@@ -71,7 +72,3 @@
     * Knuth-Morris-Pratt Algorithm
     * Word Matching With Tries
     * Huffman Code
-
-COMP9024公开资料，更多资料加我微信：
-
-<img src="https://github.com/marey/COMP9024_TEST/blob/master/my_wechat.jpg" height="300" with="300" />
