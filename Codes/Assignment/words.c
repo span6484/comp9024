@@ -75,7 +75,8 @@ int main(void) {
         List compare_list = store_word_sign[i];
         for(j = i + 1; j < num_vertex; j++){
             // add edge if word satisfies the condition:
-            if (compareTwoStr(compare_list,store_word[j])) {
+            List compare_list2 = store_word_sign[j];
+            if (compareTwoStr(compare_list,compare_list2)) {
                 e.v = i;
                 e.w = j;
                 e.weight = 1;
@@ -86,9 +87,8 @@ int main(void) {
 //    showGraph(graph);
 //    printf("%s\n", store_word[0]);
     displayPath(graph,store_word,num_vertex);
-//    bugs meet in stage 3:
-//    east: eat fast eat: eats eats:
-//    fast: fist fist: first first:
+
+    //PART 2: start with dijkstra to find the longest path
 
     return 0;
 }

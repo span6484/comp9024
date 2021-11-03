@@ -11,4 +11,6 @@ List deleteLL(List, char*);
 bool inLL(List, char*);
 void freeLL(List);
 void showLL(List);
-bool compareTwoStr(List L, char *n);
+
+//add
+bool compareTwoStr(List , List);
