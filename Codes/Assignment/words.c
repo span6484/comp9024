@@ -5,6 +5,7 @@
 #include <string.h>
 #include "WGraph.h"
 #include "list.h"
+
 int main(void) {
     int num_vertex;         //numbers of words
     // step1: save words all into array
@@ -29,28 +30,29 @@ int main(void) {
 
 
     // insert % to word
-//    char store_word_sign[num_vertex][65][33];         //array to store word with sign like la%d
+    List store_word_sign[num_vertex];         //array to store word with sign like la%d
 //    int k = 0;                                              // store_word_sign[i][k]: k = 0 %d
-//    for(int i = 0; i < num_vertex; i++) {         // array for each word
+    for(int i = 0; i < num_vertex; i++) {         // array for each word
 //        // ex: lad
-//        char word[32];
-//        strcpy(word,store_word[i]);
-//        int m = 0;
+        char word[33];
+        strcpy(word,store_word[i]);
+        List word_lst = NULL;
+
+        word_lst = insertLL(word_lst, word);
+        store_word_sign[i] = word_lst;
 //        // add sign % in position i, lab-> %lab, l%ab, la%b, lab%
-//        char new_word[strlen(store_word)+1];
-////        printf("word now is %s\n", word);
-////        printf("old word len is %d\n", strlen(word));
-//        for(int position = 0; position < strlen(word)+1; position++) {
-//            strcpy(new_word, word);    //reset new_word
-//            int j;              // control the moving of the unchanged part of word
-//            for(j = strlen(word)-1; j >= position && j >= 0; j--){
-//                new_word[j + 1] = new_word[j];
-//            }
-//            new_word[j+1] = '%';
-//
-//            strcpy(store_word_sign[k][m], new_word);
-//            m++;
-//        }
+        char new_word[37];
+        new_word[strlen(word)+1] = '\0';            // set where to stop the new word;
+        for(int position = 0; position < strlen(word)+1; position++) {
+            strcpy(new_word, word);    //reset new_word
+            int j;              // control the moving of the unchanged part of word
+            for(j = strlen(word)-1; j >= position && j >= 0; j--){
+                new_word[j + 1] = new_word[j];
+            }
+            new_word[j+1] = '%';
+            printf("the new is %s\n", new_word);
+            word_lst = insertLL(word_lst, new_word);
+        }
 //
 //        // change the word      lab->_ab  l_b -> la_
 //        char cur_word[strlen(store_word)];
@@ -61,16 +63,25 @@ int main(void) {
 //            m++;
 //        }
 //        k++;
-//    }
+    }
+//    List store_word_sign[num_vertex];         //array to store word with sign like la%d
+//    List list = NULL;
+//    list = insertLL(list,"a");
+//    list = insertLL(list,"b");
+//    store_word_sign[0] = list;
+//    List list1 = NULL;
+//    list1 = insertLL(list1,"a1");
+//    list1 = insertLL(list1,"b1");
+//    store_word_sign[1] = list1;
+    showLL(store_word_sign[0]);
+    showLL(store_word_sign[1]);
+    showLL(store_word_sign[2]);
+    freeLL(store_word_sign[0]);
+    freeLL(store_word_sign[1]);
+    freeLL(store_word_sign[2]);
 //    printf("%d\n", sizeof(store_word_sign[1]) / sizeof (store_word_sign[1][0]));
 
 
-    List list = NULL;
-    list = insertLL(list, "12");
-    list = insertLL(list, "lad");
-    list = insertLL(list, "lac");
-    showLL(list);
-    freeLL(list);
     return 0;
 }
 
