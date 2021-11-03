@@ -91,3 +91,18 @@ void freeGraph(Graph g) {
     free(g->edges);
     free(g);
 }
+void displayPath(Graph g, char pString[][32], int vertex) {
+    assert(g != NULL);
+    int i, j;
+//
+    for (i = 0; i < vertex; i++){
+        printf("%s:", pString[i]);
+        for (j = i+1; j < vertex; j++){
+            if (g->edges[i][j] != 0){
+                printf(" %s",pString[j]);
+            }
+        }
+        printf("\n");
+    }
+
+}

@@ -23,3 +23,6 @@ void  removeEdge(Graph, Edge);
 int   adjacent(Graph, Vertex, Vertex);  // returns weight, or 0 if not adjacent
 void  showGraph(Graph);
 void  freeGraph(Graph);
+
+// add new func
+void displayPath(Graph pRep, char pString[][32], int vertex);

@@ -1,4 +1,7 @@
-3
-a
-a
-a
+6
+lad
+lag
+lap
+tap
+tip
+top

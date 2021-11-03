@@ -6,6 +6,8 @@
 #include "WGraph.h"
 #include "list.h"
 
+
+
 int main(void) {
     int num_vertex;         //numbers of words
     // step1: save words all into array, scanf print
@@ -57,28 +59,40 @@ int main(void) {
             word_lst = insertLL(word_lst, cur_word);
         }
     }
+//    showLL(store_word_sign[0]);
     //----------------------Step2          Done---------------------------------------------
 
     // STEP3:
-    // Build Graph, compare with the word-list, set the directed graph with case satisfies the condition
-//    List store_word_sign[num_vertex];         //array to store word with sign like la%d
-//    List list = NULL;
-//    list = insertLL(list,"a");
-//    list = insertLL(list,"b");
-//    store_word_sign[0] = list;
-//    List list1 = NULL;
-//    list1 = insertLL(list1,"a1");
-//    list1 = insertLL(list1,"b1");
-//    store_word_sign[1] = list1;
-    showLL(store_word_sign[0]);
-    showLL(store_word_sign[1]);
-    showLL(store_word_sign[2]);
-//    freeLL(store_word_sign[0]);
-//    freeLL(store_word_sign[1]);
-//    freeLL(store_word_sign[2]);
-//    printf("%d\n", sizeof(store_word_sign[1]) / sizeof (store_word_sign[1][0]));
+    // Build Graph, compare with the word-list, set the directed graph with word satisfies the condition
 
+    // PART1: printout words and its connected words
+
+    Graph graph = newGraph(num_vertex);
+    Edge e;
+    int i;
+    int j;
+    for(i = 0; i < num_vertex; i++) {
+        List compare_list = store_word_sign[i];
+        for(j = i + 1; j < num_vertex; j++){
+            // add edge if word satisfies the condition:
+            if (compareTwoStr(compare_list,store_word[j])) {
+                e.v = i;
+                e.w = j;
+                e.weight = 1;
+                insertEdge(graph,e);
+            }
+        }
+    }
+//    showGraph(graph);
+//    printf("%s\n", store_word[0]);
+    displayPath(graph,store_word,num_vertex);
+//    bugs meet in stage 3:
+//    east: eat fast eat: eats eats:
+//    fast: fist fist: first first:
 
     return 0;
 }
+
+
+
 

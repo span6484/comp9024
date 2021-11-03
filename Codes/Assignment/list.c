@@ -5,10 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct Node {
-    char v[40];
-    struct Node *next;
-} Node;
 
 Node *makeNode(char *n) {
     Node *new = malloc(sizeof(Node));
@@ -75,4 +71,28 @@ void freeLL(List L) {
         freeLL(L->next);
         free(L);
     }
+}
+
+bool compareTwoStr(List L, char *n) {
+    List cur = L->next;
+    bool is_satisfy;   //0: false 1: true
+    while(cur != NULL){
+        is_satisfy = true;
+        if(strlen(cur->v) == strlen(n)) {
+            for(int i = 0; i < strlen(n); i++) {
+                if(cur->v[i] == '%') continue;
+                else if(cur->v[i] != n[i]){
+                    is_satisfy = false;
+                    break;
+                }
+            }
+            if(is_satisfy) {
+//                printf("%s %s %d %d\n",L,n,strlen(cur->v),strlen(n));
+                return true;
+            }
+        }
+        cur = cur->next;
+    }
+
+    return false;
 }
