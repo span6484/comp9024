@@ -7,7 +7,7 @@
 #include "list.h"
 #include "PQueue.h"
 #define VERY_LOW_VALUE -999999
-
+int findMax(int s, int pred[], char store_word[][32], int max);
 void findLongestSequence(Graph graph, char store_word[][32], int num_vertex);
 void showPath(int s, int pred[], char store_word[][32]);
 int main(void) {
@@ -143,7 +143,15 @@ void findLongestSequence(Graph graph, char store_word[][32], int num_vertex) {
             max = dist[s];
         }
     }
-    printf("Maximum sequence length: %d\n",max);
+
+    int max1 = 0;
+    for (s = source; s < num_vertex; s++) {
+        if (dist[s] == max){
+            max1 = findMax(s, pred, store_word,max1);
+            break;
+        }
+    }
+    printf("Maximum sequence length: %d\n",max1);
     printf("Maximal sequence(s):\n");
     for (s = source; s < num_vertex; s++) {
         if (dist[s] == max){
@@ -165,4 +173,16 @@ void showPath(int s, int pred[], char store_word[][32]) {
         showPath(pred[s], pred, store_word);
         printf(" -> %s",store_word[s]);
     }
+}
+int findMax(int s, int pred[], char store_word[][32], int max) {
+    if(pred[s] == -1) {
+//        printf("%s",store_word[s]);
+        max++;
+    }
+    else{
+        max = findMax(pred[s], pred, store_word,max);
+        max++;
+//        printf(" -> %s",store_word[s]);
+    }
+    return max;
 }
