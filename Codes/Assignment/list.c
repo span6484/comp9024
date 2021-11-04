@@ -98,7 +98,7 @@ bool isContainBoth(char *str1, char *str2) {
     return false;
 }
 
-bool compareTwoStr(List L, List L2) {
+bool compareTwoStr(List L, List L2) {       // find string which satisfy the condition exist or not
     List cur = L;
     List cur2;
     bool is_satisfy;   //0: false 1: true
@@ -108,25 +108,20 @@ bool compareTwoStr(List L, List L2) {
         cur2 = L2;
         while(cur2 != NULL) {
             is_satisfy = true;
-//            printf("Now compare %s %s\n\n", cur->v,cur2->v);
             if (strlen(cur->v) == strlen(cur2->v)) {
                 for (int i = 0; i < strlen(cur->v); i++) {
                     if (isContainBoth(cur->v,cur2->v) == true) {
-//                        printf("!!!!!!danger %s %s\n",cur->v,cur2->v);
                         is_satisfy = false;
                         break;
                     }
                     if (cur->v[i] != cur2->v[i]) {
                          if (cur->v[i] != '%' && cur2->v[i] != '%'){
                              is_satisfy = false;
-//                             printf("here is the problem: %s %s  %c %c\n", cur->v, cur2->v,cur->v[i],cur2->v[i]);
                              break;
                          }
                     }
                 }
-//                printf("%s %s %d %d boolean: %d\n",cur->v,cur2->v,strlen(cur->v),strlen(cur2->v), is_satisfy);
                 if (is_satisfy) {
-//                    printf("the are true\n");
                     return true;
                 }
             }

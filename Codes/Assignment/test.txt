@@ -1,6 +1,9 @@
-5
-east
-eat
-eats
-fast
-fist
+8
+bad
+ban
+dad
+dan
+lad
+lap
+mad
+tap

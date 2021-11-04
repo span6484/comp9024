@@ -101,7 +101,6 @@ void freeGraph(Graph g) {
     free(g);
 }
 
-// print words one by one
 void displayPath(Graph g, char pString[][32], int vertex) {
     assert(g != NULL);
     int i, j;
