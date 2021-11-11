@@ -12,7 +12,7 @@
 - each node contains a `data `value (or key+data)
 - each node has links to ≤ k other child nodes
 
-![tree](./img/week7tree/tree.png)
+<img src="./img/week7Tree/tree.png" alt="bst" style="zoom: 67%;" />
 
 ---
 
