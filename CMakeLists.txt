@@ -34,3 +34,6 @@ add_executable(BST Codes/problem_set/week7/BSTree/BSTree.c Codes/problem_set/wee
 
 
 add_executable(assignment Codes/Assignment/WGraph.c Codes/Assignment/WGraph.h Codes/Assignment/words.c Codes/Assignment/list.c Codes/Assignment/list.h Codes/Assignment/PQueue.c Codes/Assignment/PQueue.h)
+add_executable(BSTree Codes/week7/BSTree/BSTree.c Codes/week7/BSTree/BSTree.h)
+add_executable(treeLab Codes/problem_set/week8/BST_modify/treeLab.c Codes/problem_set/week8/BST_modify/BST.c Codes/problem_set/week8/BST_modify/BST.h)
+add_executable(RBTree Codes/problem_set/week8/RBTree/RBTree.c Codes/problem_set/week8/RBTree/RBTree.h)
