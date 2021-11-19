@@ -37,3 +37,4 @@ add_executable(assignment Codes/Assignment/WGraph.c Codes/Assignment/WGraph.h Co
 add_executable(BSTree Codes/week7/BSTree/BSTree.c Codes/week7/BSTree/BSTree.h)
 add_executable(treeLab Codes/problem_set/week8/BST_modify/treeLab.c Codes/problem_set/week8/BST_modify/BST.c Codes/problem_set/week8/BST_modify/BST.h)
 add_executable(RBTree Codes/problem_set/week8/RBTree/RBTree.c Codes/problem_set/week8/RBTree/RBTree.h)
+add_executable(problem_set10 Codes/problem_set/week10 Codes/problem_set/week10/mypassword.c)
